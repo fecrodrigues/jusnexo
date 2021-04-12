@@ -1,0 +1,175 @@
+#view_search {
+    @media (min-width: 240px) {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 992px) {
+        margin-top: 6.25rem;
+        margin-bottom: 6.25rem;
+    }
+
+    .search-block {
+        max-width: 475px;
+        width: $percent-100;
+        margin: 0 auto;
+
+        .title {
+            font-size: 1.625rem;
+            font-weight: $fw700;
+            color: $color-black;
+            text-align: center;
+            margin-bottom: 0.875rem;
+        }
+    }
+
+    .results-block {
+        max-width: 678px;
+        width: $percent-100;
+        margin: 0 auto;
+        display: block;
+
+        .title {
+            color: $color-gray;
+            font-weight: $fw400;
+            opacity: 0.8;
+            margin-bottom: 0.9375rem;
+            margin-top: 1.875rem;
+        }
+        .small-title {
+            font-size: 13px;
+        }
+
+        .medium-title {
+            opacity: 1;
+            span {
+                font-weight: $fw700;
+                color: $color-black;
+            }
+        }
+
+        .result-block {
+            padding: 0.9375rem;
+            border: 1px solid $color-ice;
+            border-radius: 0.375rem;
+            -webkit-box-shadow: 0 8px 12px 8px rgba(150, 150, 150, 0.106);
+            box-shadow: 0 4px 8px 2px rgba(150, 150, 150, 0.106);
+            margin-bottom: 0.9375rem;
+            position: relative;
+            display: block;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            ._col {
+                &:nth-child(1) {
+                    display: flex;
+                    align-items: flex-start;
+                    .user-info {
+                        margin-left: 0.625rem;
+
+                        .tag,
+                        .name,
+                        .oab-number {
+                            font-weight: $fw700;
+                            color: $color-black;
+                        }
+
+                        .tag {
+                            font-size: 0.75rem;
+                            opacity: 0.5;
+                            margin-bottom: 0.25rem;
+                        }
+
+                        .name {
+                            font-size: 16px;
+                            margin-bottom: 0.625rem;
+                        }
+
+                        .oab-number {
+                            opacity: 0.8;
+                            font-size: 14px;
+
+                            span {
+                                font-weight: $fw600;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    margin-left: 3.75rem;
+                    .bio {
+                        font-size: 14px;
+                        color: $color-black;
+                        opacity: 0.6;
+                        margin-top: 0.9375rem;
+                    }
+
+                    .expertises {
+                        margin-top: 1.5625rem;
+                        margin-left: -0.3125rem;
+
+                        .messenger-button {
+                            position: absolute;
+                            top: 0.625rem;
+                            right: 0.625rem;
+                            height: 2.75rem;
+                            width: 2.75rem;
+                            min-width: 2.75rem;
+                            border-radius: 6.25rem;
+                            background-color: $color-blue-bold;
+                            border: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            -webkit-transition: all 0.25s ease;
+                            -moz-transition: all 0.25s ease;
+                            -ms-transition: all 0.25s ease;
+                            -o-transition: all 0.25s ease;
+                            transition: all 0.25s ease;
+
+                            &:focus,
+                            &:active {
+                                -webkit-box-shadow: 0 8px 12px 8px rgba(150, 150, 150, 0.3);
+                                box-shadow: 0 4px 8px 2px rgba(150, 150, 150, 0.4);
+                                -webkit-transition: all 0.25s ease;
+                                -moz-transition: all 0.25s ease;
+                                -ms-transition: all 0.25s ease;
+                                -o-transition: all 0.25s ease;
+                                transition: all 0.25s ease;
+                            }
+
+                            svg {
+                                width: 1.25rem;
+                                height: auto;
+
+                                path {
+                                    fill: $color-white;
+                                }
+                            }
+                        }
+
+                        .item {
+                            border: 1px solid $color-ice;
+                            font-size: 11px;
+                            font-weight: $fw700;
+                            text-transform: uppercase;
+                            display: inline-block;
+                            padding: 0.5rem 0.9375rem;
+                            border-radius: 0.375rem;
+                            margin: 5px;
+                            color: $color-black;
+
+                            span {
+                                opacity: 0.6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.headline {
+    max-width: 440px;
+    width: $percent-100;
+    margin: 0 auto;
+
+    .title,
+    .subtitle {
+        text-align: center;
+        color: $color-black;
+    }
+
+    .title {
+        font-weight: $fw400;
+
+        @media (min-width: 240px) {
+            font-size: 1.375rem;
+        }
+
+        @media (min-width: 992px) {
+            font-size: 2.25rem;
+        }
+    }
+
+    .subtitle {
+        margin-top: 0.625rem;
+        opacity: 0.8;
+        font-weight: $fw600;
+        line-height: 1.6;
+
+        @media (min-width: 240px) {
+            font-size: 0.8125rem;
+        }
+
+        @media (min-width: 992px) {
+            font-size: 0.875rem;
+        }
+    }
+}

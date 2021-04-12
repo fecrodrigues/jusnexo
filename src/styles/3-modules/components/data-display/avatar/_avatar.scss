@@ -1,0 +1,63 @@
+.avatar {
+    background-color: $color-white;
+    overflow: hidden;
+    border-radius: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 0;
+        max-width: 100%;
+        display: inline-block;
+        vertical-align: middle;      
+      }
+}
+
+.avatar.extra-small {
+    width: 2.125rem;
+    height: 2.125rem;
+}
+
+.avatar.small {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.avatar.medium {
+    width: 3.125rem;
+    height: 3.125rem;
+}
+
+.avatar.large {
+    width: 5rem;
+    height: 5rem;
+}
+
+.avatar.border {
+    border-style: solid;
+}
+
+.avatar.border.border-color-white {
+    border-color: $color-white;
+}
+
+.avatar.border.border-color-purple {
+    border-color: $color-purple;
+}
+
+.avatar.border.border-size-x1 {
+    border-width: 0.063rem; //1px
+}
+
+.avatar.border.border-size-x2 {
+    border-width: 0.125rem; //2px
+}
+
+.avatar.border.border-size-x3 {
+    border-width: 0.188rem; //3px
+}
+
+.avatar.border.border-size-x4 {
+    border-width: 0.25rem; //4px
+}

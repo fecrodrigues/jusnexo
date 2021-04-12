@@ -1,0 +1,15 @@
+#footer {
+    padding: 15px 0;
+    background-color: $color-ice;
+    #footer-container {
+        width: auto;
+
+        .text {
+            text-align: center;
+            font-size: 0.8125rem;
+            font-weight: $fw400;
+            color: $color-black;
+            opacity: 0.8;
+        }
+    }
+}

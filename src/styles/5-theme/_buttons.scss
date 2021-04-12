@@ -1,0 +1,92 @@
+//===============================================================
+// Buttons ***
+//===============================================================
+
+.btn {
+    background-color: $color-ice;
+    text-transform: uppercase;
+    color: $color-gray;
+    font-weight: $fw600;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    @media (min-width: 240px) {
+        padding: 0.625rem 1rem;
+        font-size: 13.5px;
+    }
+
+    @media (min-width: 1200px) {
+        padding: 0.625rem 1.5rem;
+        font-size: 15px;
+    }
+
+    &:hover {
+        background-color: $color-ice;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:active {
+        background-color: $color-ice;
+    }
+}
+
+.btnGreen {
+    background-color: $color-green;
+    color: $color-white;
+
+    &:hover {
+        background-color: #17917d;
+    }
+
+    &:active {
+        background-color: #10806d;
+    }
+}
+
+.btn.btn-action {
+    background-color: $color-blue;
+    border: 0;
+    color: $color-white;
+    text-transform: none;
+    font-weight: $fw400;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+
+    a {
+        color: $color-white;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.btn.btn-default {
+    background-color: $color-white;
+    border: 0;
+    color: $color-black;
+    text-transform: none;
+    font-weight: $fw700;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+
+    a {
+        color: $color-black;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

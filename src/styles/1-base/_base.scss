@@ -1,0 +1,156 @@
+// * Resets
+
+body {
+    background-color: $color-white;
+    font-family: $font-nunito;
+    font-size: 16px;
+    overscroll-behavior: contain;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+input,
+textarea,
+button {
+    font-family: $font-nunito !important;
+
+    &:focus,
+    &:active {
+        outline: 0;
+    }
+}
+
+input {
+    &::placeholder {
+        font-family: $font-nunito !important;
+    }
+}
+
+._fluid-container {
+    width: $flu-container;
+}
+
+._max-container {
+    max-width: $max-container;
+}
+
+._med-container {
+    max-width: $med-container;
+}
+
+._min-container {
+    max-width: $min-container;
+}
+
+._mob-container {
+    max-width: $mob-container;
+}
+
+._container {
+    max-width: $mob-container;
+}
+
+._container-1440px,
+._max-container,
+._med-container,
+._min-container,
+._mob-container {
+    @include push--auto;
+    @include padding-lt-rt;
+    width: $percent-100;
+}
+
+// * Font Family
+
+._font._poppins {
+    font-family: $font-nunito;
+}
+
+// * Font Weight
+
+.fw700 {
+    font-weight: $fw700;
+}
+.fw600 {
+    font-weight: $fw600;
+}
+.fw500 {
+    font-weight: $fw500;
+}
+.fw400 {
+    font-weight: $fw400;
+}
+.fw300 {
+    font-weight: $fw300;
+}
+.fw200 {
+    font-weight: $fw200;
+}
+
+// * Font Helper
+
+._transf._upper {
+    text-transform: uppercase;
+}
+._transf._none {
+    text-transform: none !important;
+}
+
+// * Font Colors
+
+._color._white {
+    color: $color-white;
+}
+._color._black {
+    color: $color-black;
+}
+._color._gray {
+    color: $color-gray;
+}
+._color._silver {
+    color: $color-silver;
+}
+._color._light {
+    color: $color-light;
+}
+._color._pink {
+    color: $color-pink;
+}
+._color._yellow {
+    color: $color-yellow;
+}
+._color._green {
+    color: $color-green;
+}
+._color._purple {
+    color: $color-purple;
+}
+
+// * Font Sizes
+._10px {
+    font-size: 0.625rem;
+}
+._11px {
+    font-size: 0.688rem;
+}
+._12px {
+    font-size: 0.75rem;
+}
+._13px {
+    font-size: 0.813rem;
+}
+._14px {
+    font-size: 0.875rem;
+}
+._15px {
+    font-size: 0.938rem;
+}
+._16px {
+    font-size: 1rem;
+}

@@ -1,0 +1,53 @@
+// Defaults
+
+$body-bg: #f9fafe;
+$percent-100: 100%;
+$percent-50: 50%;
+
+// Font Family
+$font-nunito: "Nunito", sans-serif;
+
+// Font Weight
+
+$fw200: 200;
+$fw300: 300;
+$fw400: 400;
+$fw500: 500;
+$fw600: 600;
+$fw700: 700;
+
+// Width Containers
+$flu-container: 100%;
+$max-container: 1360px;
+$med-container: 1090px;
+$min-container: 990px;
+$mob-container: 320px;
+
+// Breakpoints
+
+$break-small: 576px;
+$break-medium: 768px;
+$break-large: 992px;
+$break-max: 1200px;
+
+// Colors
+
+$color-white: #ffffff;
+$color-black: #28313b;
+$color-red: #e74c3c;
+$color-gray: #7e8389;
+$color-silver: #7e8389;
+$color-light: #f9f9f9;
+$color-ice: #f1f1f1;
+$color-pink: #fbabc8;
+$color-yellow: #fcd47e;
+$color-green: #8ac185;
+$color-purple: #7768d8;
+$color-blue: #2a86ff;
+$color-blue-bold: #0a63d9;
+$color-orange: #f97e0d;
+
+// Asset paths
+$path-image: "../../images";
+$path-fonts: "../fonts";
+$node-modules: "./node_modules";

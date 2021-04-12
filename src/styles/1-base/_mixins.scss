@@ -1,0 +1,62 @@
+// Positions Helpers
+
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+@mixin padding-lt-rt {
+
+    padding: {
+        left: 15px;
+        right: 15px;
+    }
+
+}
+
+// Backgrounds
+
+@mixin bg-defaults ($bg-repeat: no-repeat, $bg-position: center, $bg-size: cover) {
+    background-repeat: $bg-repeat;
+    background-position: $bg-position;
+    background-size: $bg-size;
+}
+
+// Transitions
+
+@mixin transition-ease-out ($transition: all 0.15s ease-in-out) {
+
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin padding-box ($padding-lr: 15px, $padding-tb: 20px) {
+    padding: {
+        top: $padding-tb;
+        left: $padding-lr;
+        right: $padding-lr;
+        bottom: $padding-tb;
+    }
+}
+
+
+// Mobile
+
+@mixin mobile-button-icon ($bg-color-transparent: transparent, $border-0: 0, $padding-50em: 0.50em) {
+    background-color: $bg-color-transparent;
+    border: $border-0;
+    padding: $padding-50em;
+}
+
+
+
+
+
+
+
+
