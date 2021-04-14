@@ -1,0 +1,78 @@
+
+#view_process {
+
+    @media (min-width: 240px) {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+
+        .process-container {
+            margin-top: 1.5rem;
+        }
+
+    }
+
+    @media (min-width: 992px) {
+        margin-top: 6.25rem;
+        margin-bottom: 6.25rem;
+
+        .process-container {
+            padding: 3.25rem;
+        }
+    }
+
+    .title-block {
+        max-width: 475px;
+        width: $percent-100;
+        margin: 0 auto;
+
+        .title {
+            font-size: 1.625rem;
+            font-weight: $fw700;
+            color: $color-black;
+            text-align: center;
+            margin-bottom: 0.875rem;
+        }
+    }
+
+    .process-item {
+        cursor: pointer;
+        margin: 1rem;
+
+        .process-title {
+            font-weight: bold;
+        }
+
+        .process-date {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .click-to-details {
+            font-size: 0.7rem;
+            opacity: 0.4;
+            padding: 0.6rem;
+            text-align: center;
+        }
+    }
+
+    .adv-content {
+
+        margin-top: 0.3rem;
+
+        .adv-name-avatar {
+            display: flex;
+            margin-top: 0.5rem;
+    
+            span {
+                align-self: center;
+                margin-left: 0.6rem;
+            }
+            
+        }
+
+    }
+
+    
+   
+
+}

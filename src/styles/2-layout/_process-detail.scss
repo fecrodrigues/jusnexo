@@ -1,41 +1,23 @@
-#view_user-profile {
+
+#view_process_detail {
+
     margin-top: 1.875rem;
     margin-bottom: 2.5rem;
 
-    .header {
-        .avatar.large {
-            margin: 0 auto;
-            margin-top: -40px;
-            border: 0.0625rem solid $color-white;
-            z-index: 9;
-            position: relative;
-            overflow: visible;
+    @media (max-width: 992px) {
+        .cover {
+            max-width: 93%;
         }
+    }
 
+    .header {
+        
         .username {
             font-weight: $fw600;
             font-size: 1.25rem;
             margin-top: 0.625rem;
-        }
-
-        .rate {
-            font-weight: $fw600;
-            font-size: 1.15rem;
-            margin-top: 0.625rem;
-        }
-
-        .username,
-        .rate,
-        .oab-number {
             text-align: center;
             color: $color-black;
-        }
-
-        .oab-number {
-            font-weight: $fw700;
-            font-size: 0.75rem;
-            opacity: 0.9;
-            margin-top: 0.75rem;
         }
     }
 
@@ -61,49 +43,20 @@
                 margin-bottom: 10px;
             }
 
-            .btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                svg {
-                    margin-left: 0.625rem;
-                    width: 1.25rem;
-                    height: auto;
-                }
-            }
-
-            .expertise {
-                border: 1px solid $color-ice;
-                font-size: 11px;
-                font-weight: $fw700;
-                text-transform: uppercase;
-                display: inline-block;
-                padding: 0.5rem 0.9375rem;
-                border-radius: 0.375rem;
-                margin: 5px;
-
-                span {
-                    opacity: 0.6;
-                }
-            }
-
-            .phone,
-            .message,
-            .bio {
+            .description {
                 font-size: 0.875rem;
                 font-weight: $fw400;
                 color: $color-black;
                 opacity: 0.6;
             }
 
-            .bio {
+            .description {
                 line-height: 1.6;
             }
 
             .rating {
                 padding: 10px;
                 background-color: #f0f0f0;
-                width: 100%;
                 margin: 10px;
                 max-width: 89%;
             }
@@ -122,6 +75,10 @@
                 align-self: center;
             }
 
+            .message {
+                opacity: 0.5;
+            }
+
             .message-rate {
                 align-self: center;
                 margin-left: 10px;
@@ -130,5 +87,7 @@
 
             }
         }
+
     }
+
 }

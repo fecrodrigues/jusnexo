@@ -11,6 +11,9 @@ import Messenger from "./pages/account/Messenger";
 import Profile from "./pages/account/Profile";
 import UserProfile from "./pages/UserProfile";
 import About from './pages/About';
+import Process from './pages/Process';
+import ProcessDetail from './pages/ProcessDetail';
+import ConsultDetail from './pages/ConsultDetail';
 
 class Routes extends Component {
 
@@ -27,8 +30,12 @@ class Routes extends Component {
                 <Route exact path="/buscar" component={SearchPage} />
                 <Route exact path="/minha-conta/mensagens" component={Messenger} />
                 <Route exact path="/minha-conta/perfil" component={Profile} />
+                <Route exact path="/minha-conta/processos" component={Process} />
                 <Route exact path="/usuario" component={UserProfile} />
                 <Route exact path="/sobre" component={About} />
+                <Route exact path="/processo/:id" component={ProcessDetail} />
+                <Route exact path="/consulta/:id" component={ConsultDetail} />
+                
 
             </Switch>
 

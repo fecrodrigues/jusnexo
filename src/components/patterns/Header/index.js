@@ -12,7 +12,7 @@ import {Link, withRouter} from "react-router-dom"
 // #4 - Import * FontAwesome Icons
 //=====================================================================================
 import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faSearch, faUserCircle, faSignOutAlt, faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faSearch, faUserCircle, faSignOutAlt, faCommentDots, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../ui/Logo";
 
 import Avatar from "../../data-display/Avatar";
@@ -110,7 +110,8 @@ function Header(props) {
                             <Dropdown>
                                 <DropdownItem href="/minha-conta/perfil" icon={<I icon={faUserCircle} />} text="Meu Perfil" />
                                 <DropdownItem href="/minha-conta/mensagens" icon={<I icon={faCommentDots} />} text="Mensagens" />
-                                <DropdownItem href="#!" icon={<I icon={faSignOutAlt} />} text="Sair" />
+                                <DropdownItem href="/minha-conta/processos" icon={<I icon={faBookOpen} />} text="Meus Processos/Consultas" />
+                                <DropdownItem href="#!" container="body" onClick={logoutUser} icon={<I icon={faSignOutAlt} />} text="Sair" />
                             </Dropdown>
                         </div>
                     </div>
@@ -191,6 +192,7 @@ function Header(props) {
                             <Dropdown>
                             <DropdownItem href="/minha-conta/perfil" icon={<I icon={faUserCircle} />} text="Meu Perfil" />
                                 <DropdownItem href="/minha-conta/mensagens" icon={<I icon={faCommentDots} />} text="Mensagens" />
+                                <DropdownItem href="/minha-conta/processos" icon={<I icon={faBookOpen} />} text="Meus Processos/Consultas" />
                                 <DropdownItem href="#!" container="body" onClick={logoutUser} icon={<I icon={faSignOutAlt} />} text="Sair" />
                             </Dropdown>
                         </div>
