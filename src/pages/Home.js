@@ -44,7 +44,7 @@ export default function Home() {
             Perfeito para seu caso.
             </h1>
                         <h2 className="subtitle">
-                            Vocẽ fica a vontande para escolher o profissional que melhor lhe atender.
+                            Você fica a vontande para escolher o profissional que melhor lhe atender.
             </h2>
 
                         <div className="actions">
