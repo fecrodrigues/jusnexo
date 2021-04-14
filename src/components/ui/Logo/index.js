@@ -16,7 +16,7 @@ export default function Logo({ href }) {
             <Link to={!href ? "/" : href}>
 
                 <div>
-                    Jus<span>Nexo</span>
+                    J<span>N</span>
                 </div>
 
             </Link>
