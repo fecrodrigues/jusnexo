@@ -104,16 +104,18 @@ function Header(props) {
                             </button>
                         </div>
 
-                        <div className="user">
-                            <Avatar className="small" image={AvatarImage} />
+                        {authenticated && (
+                            <div className="user">
+                                <Avatar className="small" image={AvatarImage} />
 
-                            <Dropdown>
-                                <DropdownItem href="/minha-conta/perfil" icon={<I icon={faUserCircle} />} text="Meu Perfil" />
-                                <DropdownItem href="/minha-conta/mensagens" icon={<I icon={faCommentDots} />} text="Mensagens" />
-                                <DropdownItem href="/minha-conta/processos" icon={<I icon={faBookOpen} />} text="Meus Processos/Consultas" />
-                                <DropdownItem href="#!" container="body" onClick={logoutUser} icon={<I icon={faSignOutAlt} />} text="Sair" />
-                            </Dropdown>
-                        </div>
+                                <Dropdown>
+                                    <DropdownItem href="/minha-conta/perfil" icon={<I icon={faUserCircle} />} text="Meu Perfil" />
+                                    <DropdownItem href="/minha-conta/mensagens" icon={<I icon={faCommentDots} />} text="Mensagens" />
+                                    <DropdownItem href="/minha-conta/processos" icon={<I icon={faBookOpen} />} text="Meus Processos/Consultas" />
+                                    <DropdownItem href="#!" container="body" onClick={logoutUser} icon={<I icon={faSignOutAlt} />} text="Sair" />
+                                </Dropdown>
+                            </div>
+                        )}
                     </div>
                 </div>
 
