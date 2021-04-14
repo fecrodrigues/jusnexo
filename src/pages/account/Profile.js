@@ -1,7 +1,7 @@
 //=====================================================================================
 // #1 - Base Imports
 //=====================================================================================
-import React from "react";
+import { React, useState } from "react";
 import Cover from "../../components/data-display/Cover";
 import Container from "../../components/layout/Container";
 import Headline from "../../components/layout/Headline";
@@ -27,6 +27,8 @@ import CoverImage from "../../images/cover.png"
 import AvatarImage from "../../images/avatar.png"
 
 export default function Profile() {
+
+    const [isLawyer, setIsLawyer] = useState(false);
 
     // * React Hook Forms
     const { register, handleSubmit, errors } = useForm();
@@ -78,6 +80,16 @@ export default function Profile() {
                     />
 
                     <Field
+                        label="Senha"
+                        id="id41gsnncx256"
+                        name="password"
+                        type="password"
+                        onChange={({ target }) => console.log(target.value)}
+                        ref={register({ required: true })}
+                        error={errors.password && "Campo obrigatório"}
+                    />
+
+                    <Field
                         label="Nome"
                         id="id41232"
                         name="first_name"
@@ -121,83 +133,78 @@ export default function Profile() {
                         label="Sou advogado"
                         id="id41245we14"
                         name="lawyer"
+                        onChange={(e) => setIsLawyer(e.target.checked)}
                         className={errors.lawyer && "error"}
                         ref={register({ required: false })}
                     />
 
-                    <div className="checkbox-set">
-                        <div className="title">Áreas de atuação</div>
+                    {isLawyer && (
+                        <>
+                            <div className="checkbox-set">
+                                <div className="title">Áreas de atuação</div>
 
-                        <CheckBox
-                            label="Direito civil"
-                            id="id4124cvsx54"
-                            name="direito_civil"
-                            className={errors.direito_civil && "error"}
-                            ref={register({ required: false })}
-                        />
+                                <CheckBox
+                                    label="Direito civil"
+                                    id="id4124cvsx54"
+                                    name="direito_civil"
+                                    className={errors.direito_civil && "error"}
+                                    ref={register({ required: false })}
+                                />
 
-                        <CheckBox
-                            label="Direito administrativo"
-                            id="id412dfa454"
-                            name="direito_adm"
-                            className={errors.direito_adm && "error"}
-                            ref={register({ required: false })}
-                        />
+                                <CheckBox
+                                    label="Direito administrativo"
+                                    id="id412dfa454"
+                                    name="direito_adm"
+                                    className={errors.direito_adm && "error"}
+                                    ref={register({ required: false })}
+                                />
 
-                        <CheckBox
-                            label="Direito ambiental"
-                            id="id41afmc2454"
-                            name="direito_ambiental"
-                            className={errors.direito_ambiental && "error"}
-                            ref={register({ required: false })}
-                        />
+                                <CheckBox
+                                    label="Direito ambiental"
+                                    id="id41afmc2454"
+                                    name="direito_ambiental"
+                                    className={errors.direito_ambiental && "error"}
+                                    ref={register({ required: false })}
+                                />
 
-                        <CheckBox
-                            label="Direito comercial"
-                            id="id41asbn2454"
-                            name="direito_comercial"
-                            className={errors.direito_comercial && "error"}
-                            ref={register({ required: false })}
-                        />
+                                <CheckBox
+                                    label="Direito comercial"
+                                    id="id41asbn2454"
+                                    name="direito_comercial"
+                                    className={errors.direito_comercial && "error"}
+                                    ref={register({ required: false })}
+                                />
 
-                        <CheckBox
-                            label="Direito do consumidor"
-                            id="id4124gqws54"
-                            name="direito_consumidor"
-                            className={errors.direito_consumidor && "error"}
-                            ref={register({ required: false })}
-                        />
-                    </div>
+                                <CheckBox
+                                    label="Direito do consumidor"
+                                    id="id4124gqws54"
+                                    name="direito_consumidor"
+                                    className={errors.direito_consumidor && "error"}
+                                    ref={register({ required: false })}
+                                />
+                            </div>
 
-                    <Field
-                        label="Número AOB"
-                        id="id4avgnh1256"
-                        name="aob_number"
-                        type="text"
-                        onChange={({ target }) => console.log(target.value)}
-                        ref={register({ required: true })}
-                        error={errors.aob_number && "Campo obrigatório"}
-                    />
+                            <Field
+                                label="Número AOB"
+                                id="id4avgnh1256"
+                                name="aob_number"
+                                type="text"
+                                onChange={({ target }) => console.log(target.value)}
+                                ref={register({ required: true })}
+                                error={errors.aob_number && "Campo obrigatório"}
+                            />
 
-                    <Textarea
-                        label="Biografia"
-                        id="id4fdsa1254"
-                        name="bio"
-                        type="textarea"
-                        onChange={({ target }) => console.log(target.value)}
-                        ref={register({ required: true })}
-                        error={errors.bio && "Campo obrigatório"}
-                    />
-
-                    <Field
-                        label="Senha"
-                        id="id41gsnncx256"
-                        name="password"
-                        type="password"
-                        onChange={({ target }) => console.log(target.value)}
-                        ref={register({ required: true })}
-                        error={errors.password && "Campo obrigatório"}
-                    />
+                            <Textarea
+                                label="Biografia"
+                                id="id4fdsa1254"
+                                name="bio"
+                                type="textarea"
+                                onChange={({ target }) => console.log(target.value)}
+                                ref={register({ required: true })}
+                                error={errors.bio && "Campo obrigatório"}
+                            />
+                        </>
+                    )}
 
 
                     <div className="form-footer">

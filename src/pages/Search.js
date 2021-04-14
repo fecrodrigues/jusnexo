@@ -12,7 +12,8 @@ import Avatar from "../components/data-display/Avatar";
 // #2 - Import * FontAwesome Icons
 //=====================================================================================
 import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faStarHalfAlt, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons'; 
 
 import AvatarImage from "../images/avatar.png"
 
@@ -50,6 +51,9 @@ const ResultBlock = ({ href, avatarImage, tag, username, oabNumber, bio, childre
                     </div>
                     <div className="name">
                         {username}
+                    </div>
+                    <div class="rate">
+                        Avaliação:  <I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStarHalfAlt}/><I icon={faStarEmpty}/>
                     </div>
                     <div className="oab-number">
                         OAB: <span>{oabNumber}</span>

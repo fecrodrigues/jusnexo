@@ -18,7 +18,14 @@
             margin-top: 0.625rem;
         }
 
+        .rate {
+            font-weight: $fw600;
+            font-size: 1.15rem;
+            margin-top: 0.625rem;
+        }
+
         .username,
+        .rate,
         .oab-number {
             text-align: center;
             color: $color-black;
@@ -81,6 +88,7 @@
             }
 
             .phone,
+            .message,
             .bio {
                 font-size: 0.875rem;
                 font-weight: $fw400;
@@ -90,6 +98,32 @@
 
             .bio {
                 line-height: 1.6;
+            }
+
+            .rating {
+                padding: 10px;
+            }
+
+            .message-user-info {
+                display: flex;
+                justify-content: baseline;
+                margin-bottom: 1em;
+            }
+
+            .message-user {
+                font-size: 0.875rem;
+                font-weight: $fw400;
+
+                margin-left: 7px;
+                align-self: center;
+            }
+
+            .message-rate {
+                align-self: center;
+                margin-left: 10px;
+                font-size: 0.875rem;
+                font-weight: $fw400;
+
             }
         }
     }

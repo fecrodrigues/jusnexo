@@ -71,6 +71,7 @@
 
                         .tag,
                         .name,
+                        .rate,
                         .oab-number {
                             font-weight: $fw700;
                             color: $color-black;
@@ -85,6 +86,12 @@
                         .name {
                             font-size: 16px;
                             margin-bottom: 0.625rem;
+                        }
+
+                        .rate {
+                            font-size: 14px;
+                            font-weight: $fw600;
+                            margin-bottom: 0.425rem;
                         }
 
                         .oab-number {

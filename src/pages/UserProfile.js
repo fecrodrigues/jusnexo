@@ -10,11 +10,13 @@ import Container from "../components/layout/Container";
 // #4 - Import * FontAwesome Icons
 //=====================================================================================
 import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarEmpty } from "@fortawesome/free-regular-svg-icons";
 import Avatar from "../components/data-display/Avatar";
 
 import CoverImage from "../images/cover.png"
 import AvatarImage from "../images/avatar.png"
+import { Grid } from "@material-ui/core";
 
 const Expertise = ({ text }) => {
 
@@ -42,7 +44,7 @@ const InfoBlock = ({ title, children }) => {
     )
 }
 
-export default function UserProfile() {
+export default function UserProfile(props) {
 
     return (
         <Container id="view_user-profile">
@@ -56,6 +58,10 @@ export default function UserProfile() {
                     Jhonatan Banks
                 </div>
 
+                <div className="rate">
+                    Avaliação:  <I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStarHalfAlt}/><I icon={faStarEmpty}/>
+                </div>
+
                 <div className="oab-number">
                     ADVOGADO - OAB: SP/425490
                 </div>
@@ -64,7 +70,7 @@ export default function UserProfile() {
 
             <div className="content">
                 <InfoBlock title="Chat">
-                    <button type="button" className="btn btn-action">
+                    <button onClick={() => props.history.push('/minha-conta/mensagens') } type="button" className="btn btn-action">
                         Conversar
                         <I icon={faCommentDots} />
                     </button>
@@ -81,11 +87,41 @@ export default function UserProfile() {
                 </InfoBlock>
                 <InfoBlock title="Bio">
                     <div className="bio">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan, diam
-                        non ultrices rhoncus, mauris tellus consequat tortor, et accumsan leo nibh a lacus.
-                        Sed lectus leo, consequat nec ante in, tincidunt venenatis nunc.
+                        Estou na área desde 1980, tenho faculdade e pós graduação, trabalhei para o escritório rowfows & rofows
                     </div>
                 </InfoBlock>
+                <InfoBlock title="Avaliações">
+                    
+                    <div className="rating">
+                        <div class="message-user-info">
+                            <Avatar size="small" image={AvatarImage} /> <small className="message-user">Cliente 1</small> 
+
+                            <small className="message-rate"><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/></small>
+                        </div>
+                        
+                        <p className="message">Advogado excelente, resolveu meu problema de forma simples e ágil </p>
+                    </div>
+
+                    <div className="rating">
+                        <div class="message-user-info">
+                            <Avatar size="small" image={AvatarImage} /> <small className="message-user">Cliente 2</small> 
+
+                            <small className="message-rate"><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/></small>
+                        </div>
+                        <p className="message">Advogado Muito bom </p>
+                    </div>
+
+                    <div className="rating">
+                        <div class="message-user-info">
+                                <Avatar size="small" image={AvatarImage} /> <small className="message-user">Cliente 3</small> 
+
+                                <small className="message-rate"><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStarEmpty}/><I icon={faStarEmpty}/></small>
+                         </div>
+                        <p className="message">Advogado bom , porem demora para responder </p>
+                    </div>
+
+                </InfoBlock>
+
             </div>
         </Container>
     )

@@ -10,6 +10,7 @@ import SearchPage from "./pages/Search";
 import Messenger from "./pages/account/Messenger";
 import Profile from "./pages/account/Profile";
 import UserProfile from "./pages/UserProfile";
+import About from './pages/About';
 
 class Routes extends Component {
 
@@ -27,6 +28,7 @@ class Routes extends Component {
                 <Route exact path="/minha-conta/mensagens" component={Messenger} />
                 <Route exact path="/minha-conta/perfil" component={Profile} />
                 <Route exact path="/usuario" component={UserProfile} />
+                <Route exact path="/sobre" component={About} />
 
             </Switch>
 

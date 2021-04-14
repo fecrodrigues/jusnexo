@@ -30,13 +30,19 @@ import Headline from "../../components/layout/Headline";
 import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-export default function Login() {
+import EventEmitter from './../../services/EventEmitter';
+
+export default function Login(props) {
 
     // * React Hook Forms
     const { register, handleSubmit, errors } = useForm();
 
     // * React Hook Forms - onSubmit Function
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        localStorage.setItem('authenticated', true);
+        EventEmitter.dispatch('loggedin')
+        props.history.push('/buscar');
+    }
 
     return (
         <Container id="view_login">
@@ -83,7 +89,7 @@ export default function Login() {
 
 
                 <div className="form-footer">
-                    <button type="submit" className="btn btn-action">Criar conta</button>
+                    <button type="submit" className="btn btn-action">Entrar</button>
 
                     <Link to="/criar-conta" className="back-to">
 

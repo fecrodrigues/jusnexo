@@ -1,12 +1,12 @@
 //=====================================================================================
 // #1 - Base Imports
 //=====================================================================================
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //=====================================================================================
 // #3 - Router Dom Imports
 //=====================================================================================
-import {Link} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 
 //=====================================================================================
 // #4 - Import * FontAwesome Icons
@@ -18,6 +18,8 @@ import Logo from "../../ui/Logo";
 import Avatar from "../../data-display/Avatar";
 
 import AvatarImage from "../../../images/avatar.png";
+
+import EventEmitter from '../../../services/EventEmitter';
 
 const Dropdown = ({ children }) => {
 
@@ -32,11 +34,11 @@ const Dropdown = ({ children }) => {
     )
 }
 
-const DropdownItem = ({ href, icon, text }) => {
+const DropdownItem = ({ href, icon, text, onClick }) => {
 
     return (
         <li>
-            <Link to={!href ? "#!" : href}>
+            <Link to={!href ? "#!" : href} onClick={onClick}>
                
                     <div className="icon">
                         {icon}
@@ -50,14 +52,31 @@ const DropdownItem = ({ href, icon, text }) => {
     )
 }
 
-function Header() {
+function Header(props) {
 
     // * States
     const [menu, setMenu] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [authenticated, setAuthenticated] = useState(false);
 
     // * Functions
     const handleMenu = () => setMenu(!menu);
 
+    useEffect(() => {
+        if (localStorage.getItem("authenticated") !== null) {
+            setAuthenticated(true);
+        }
+    }, [])
+
+    EventEmitter.subscribe('loggedin', () => {
+        setAuthenticated(true);
+    })
+
+    const logoutUser = () => {
+        setAuthenticated(false);
+        localStorage.removeItem('authenticated');
+        props.history.push('/');
+    }
 
     return (
         <header id="Header">
@@ -124,6 +143,13 @@ function Header() {
 
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/sobre">
+                                    
+                                        Sobre
+
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -141,28 +167,31 @@ function Header() {
                     </div>
 
 
-                    <div className="action-buttons">
-                        <Link to="/entrar" className="btn">
-                          
-                                Entrar
-                          
-                        </Link>
-
-                        <Link to="/criar-conta" className="btn">
+                    {!authenticated && (
+                        <div className="action-buttons">
+                            <Link to="/entrar" className="btn">
                             
-                                Cadastre-se
-                           
-                        </Link>
-                    </div>
+                                    Entrar
+                            
+                            </Link>
 
-                    {false && (
+                            <Link to="/criar-conta" className="btn">
+                                
+                                    Cadastre-se
+                            
+                            </Link>
+
+                        </div>
+                    )}
+
+                    {authenticated && (
                         <div className="user">
                             <Avatar className="small" image={AvatarImage} />
 
                             <Dropdown>
                             <DropdownItem href="/minha-conta/perfil" icon={<I icon={faUserCircle} />} text="Meu Perfil" />
                                 <DropdownItem href="/minha-conta/mensagens" icon={<I icon={faCommentDots} />} text="Mensagens" />
-                                <DropdownItem href="#!" icon={<I icon={faSignOutAlt} />} text="Sair" />
+                                <DropdownItem href="#!" container="body" onClick={logoutUser} icon={<I icon={faSignOutAlt} />} text="Sair" />
                             </Dropdown>
                         </div>
                     )}
@@ -172,4 +201,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default withRouter(Header);

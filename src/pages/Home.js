@@ -2,10 +2,12 @@
 // #1 - Base Imports
 //=====================================================================================
 import { Link } from "@material-ui/core";
-import React from "react";
+import {React, useEffect} from "react";
 import Container from "../components/layout/Container";
 
 import Headline from "../components/layout/Headline";
+
+import { useLocation } from 'react-router-dom'
 
 //=====================================================================================
 // #4 - Import * FontAwesome Icons
@@ -18,6 +20,19 @@ import FeaturedChat from "../images/featured-chat.png";
 
 export default function Home() {
 
+    const location = useLocation();
+
+    useEffect(()=> {
+        if (location.hash) {
+            let elem = document.getElementById(location.hash.slice(1))
+            if (elem) {
+                elem.scrollIntoView({behavior: "smooth"})
+            }
+        } else {
+            window.scrollTo({top:0,left:0, behavior: "smooth"})
+        }
+    }, [location,])
+
     return (
         <div id="view_home">
 
@@ -29,14 +44,13 @@ export default function Home() {
             Perfeito para seu caso.
             </h1>
                         <h2 className="subtitle">
-                            Temos mais de 1200 advogados cadastrados em nossa
-                            Plataforma.
+                            Vocẽ fica a vontande para escolher o profissional que melhor lhe atender.
             </h2>
 
                         <div className="actions">
 
                             <button type="button" className="btn btn-action">
-                                <Link href="#!">
+                                <Link href="/criar-conta">
                                     <a>
                                         Criar uma conta
                   </a>
@@ -44,7 +58,7 @@ export default function Home() {
                             </button>
 
                             <button type="button" className="btn btn-default">
-                                <Link href="#!">
+                                <Link href="/sobre">
                                     <a>
                                         Saiba mais
                   </a>
@@ -56,7 +70,7 @@ export default function Home() {
 
                 <div className="HeroRight" style={{ backgroundImage: `url(${HeroBackground})` }}></div>
             </div>
-
+            
             <Container id="como-funciona">
 
                 <div className="HowItWorks">
@@ -73,16 +87,15 @@ export default function Home() {
             </h1>
 
                             <p className="text">
-                                Call Center Services International’s
-                                management team has over 35-years of
-                                expertise in successfully establishing U.S.
+                                Com a plataforma é simples e rápido realizar uma consulta jurídica e 
+                                até mesmo acompanhar os seus processos, basta criar uma conta e você conseguira encontrar os melhores profissionais pelos melhores preços
             </p>
 
 
                             <div className="actions">
 
                                 <button type="button" className="btn btn-action">
-                                    <Link to="/criar-conta">
+                                    <Link href="/criar-conta">
                                         <a>
                                             Criar uma conta
                                         </a>
@@ -110,7 +123,7 @@ export default function Home() {
                     <p className="text">
                         Nosso suporte garante a resposta do seu contato em até 24h de
                         segunda à sexta-feira. Com o aplicativo WhatsApp a comunicação será
-                        mais rápida, podendo sanar qualquer dúvida sobre nossos produtos.
+                        mais rápida, podendo sanar qualquer dúvida.
             </p>
 
                     <button type="button" className="btn btn-action">
