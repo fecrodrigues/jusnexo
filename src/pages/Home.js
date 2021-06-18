@@ -163,7 +163,7 @@ export default function Home() {
                 
             </div>
 
-            <Container id="como-funciona">
+            <Container id="como-funciona-cliente">
 
                 <div className="HowItWorks">
 

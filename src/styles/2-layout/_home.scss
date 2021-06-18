@@ -219,6 +219,102 @@
         }
     }
 
+    #como-funciona-cliente {
+        @media (min-width: 240px) {
+            margin-bottom: 0rem;
+        }
+
+        @media (min-width: 768px) {
+            margin-bottom: 7.5rem;
+        }
+
+        @media (min-width: 992px) {
+            margin-bottom: 11.25rem;
+        }
+
+        .HowItWorks {
+            margin: 4.625rem 0;
+
+            ._cols {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                @media (min-width: 240px) {
+                    margin-top: 30px;
+                    flex-direction: column;
+                }
+
+                @media (min-width: 992px) {
+                    margin-top: 60px;
+                    flex-direction: row;
+                }
+
+                ._col {
+                    &:nth-child(1) {
+                        max-width: 374px;
+                        width: $percent-100;
+
+                        @media (min-width: 240px) {
+                            margin-bottom: 40px;
+                        }
+
+                        @media (min-width: 992px) {
+                            padding-right: 1.875rem;
+                            margin-bottom: 0;
+                        }
+
+                        .title {
+                            @media (min-width: 240px) {
+                                font-size: 1.75rem;
+                            }
+
+                            @media (min-width: 992px) {
+                                font-size: 2.25rem;
+                            }
+                        }
+
+                        .text {
+                            color: $color-black;
+                            opacity: 0.8;
+                            font-weight: $fw400;
+                            font-size: 16px;
+                            line-height: 1.6;
+                            margin: 1.5rem 0 1.875rem 0;
+                        }
+
+                        .title,
+                        .text,
+                        .actions {
+                            @media (min-width: 240px) {
+                                text-align: center;
+                            }
+                            @media (min-width: 992px) {
+                                text-align: left;
+                            }
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        .featured-chat {
+                            @media (min-width: 240px) {
+                                width: 320px;
+                            }
+
+                            @media (min-width: 768px) {
+                                width: 428px;
+                            }
+
+                            @media (min-width: 992px) {
+                                width: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .contact-us {
         background-color: $color-light;
         padding: 1.875rem 0.9375rem;

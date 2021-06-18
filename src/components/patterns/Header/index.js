@@ -135,7 +135,14 @@ function Header(props) {
                             <li>
                                 <Link to="/#como-funciona">
                                     
-                                        Como Funciona
+                                        Para o advogado
+
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/#como-funciona-cliente">
+                                    
+                                        Para o cliente
 
                                 </Link>
                             </li>
