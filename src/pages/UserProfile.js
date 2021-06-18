@@ -10,13 +10,14 @@ import Container from "../components/layout/Container";
 // #4 - Import * FontAwesome Icons
 //=====================================================================================
 import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
-import { faCommentDots, faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faStar, faStarHalfAlt, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarEmpty } from "@fortawesome/free-regular-svg-icons";
 import Avatar from "../components/data-display/Avatar";
 
 import CoverImage from "../images/cover.png"
 import AvatarImage from "../images/avatar-blank.png"
-import { Grid } from "@material-ui/core";
+
+import { Modal, Backdrop, Fade, makeStyles, Grid  } from '@material-ui/core';
 
 const Expertise = ({ text }) => {
 
@@ -44,7 +45,31 @@ const InfoBlock = ({ title, children }) => {
     )
 }
 
+const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+}));
+
 export default function UserProfile(props) {
+
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Container id="view_user-profile">
@@ -69,12 +94,21 @@ export default function UserProfile(props) {
             </div>
 
             <div className="content">
+                
                 <InfoBlock title="Chat">
                     <button onClick={() => props.history.push('/minha-conta/mensagens') } type="button" className="btn btn-action">
                         Conversar
                         <I icon={faCommentDots} />
                     </button>
                 </InfoBlock>
+                <InfoBlock title="Ações">
+                    <button style={{ backgroundColor: '#28313b' }} onClick={handleOpen} 
+                        type="button" className="btn btn-action">
+                        Realizar avaliação
+                        <I icon={faCheck} />
+                    </button>
+                </InfoBlock>
+
                 <InfoBlock title="Áreas de atuação">
                     <Expertise text="administrativo" />
                     <Expertise text="comercial" />
@@ -123,6 +157,29 @@ export default function UserProfile(props) {
                 </InfoBlock>
 
             </div>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                    <div className={classes.paper}>
+                        <h1>Avaliar o profissional</h1>
+                        
+                        <button style={{ margin: '5px' }} type="button">Avaliar</button>
+                        <button style={{ margin: '5px' }} onClick={handleClose} type="button">Cancelar</button>
+                    </div>
+                </Fade>
+            </Modal>
+
         </Container>
     )
 }

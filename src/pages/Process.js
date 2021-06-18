@@ -1,11 +1,35 @@
 
 import React from 'react';
 import Avatar from "../components/data-display/Avatar";
-import { Container, Divider, Typography, Card, CardActions, CardContent, Button, Grid } from '@material-ui/core';
+import { Container, Divider, Typography, Card, CardContent, Grid, Modal, Backdrop, Fade, makeStyles  } from '@material-ui/core';
 
 import AvatarImage from "../images/avatar-blank.png";
 
+const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+}));
+
 export default function Process(props) {
+
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
  
     return (
         
@@ -14,6 +38,7 @@ export default function Process(props) {
 
             <div className="title-block">
                 <h1 className="title"> Meus Processos / Consultas </h1>
+                <a href="#!" className="add-button" onClick={handleOpen}>+</a>
             </div>
 
             <div className="process-container">
@@ -139,6 +164,28 @@ export default function Process(props) {
         
               
             </div>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                    <div className={classes.paper}>
+                        <h1>Cadastrar um novo processo</h1>
+                        
+                        <button style={{ margin: '5px' }} type="button">Cadastrar</button>
+                        <button style={{ margin: '5px' }} onClick={handleClose} type="button">Cancelar</button>
+                    </div>
+                </Fade>
+            </Modal>
 
         </Container>
 

@@ -10,6 +10,8 @@ import AvatarImage from "../images/avatar-blank.png"
 import Cover from "../components/data-display/Cover";
 import Avatar from "../components/data-display/Avatar";
 
+import { Modal, Backdrop, Fade, makeStyles  } from '@material-ui/core';
+
 const InfoBlock = ({ title, children }) => {
 
     return (
@@ -25,7 +27,32 @@ const InfoBlock = ({ title, children }) => {
     )
 }
 
+
+const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+}));
+
 export default function ProcessDetail() {
+
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Container id="view_process_detail">
@@ -75,10 +102,38 @@ export default function ProcessDetail() {
                             </div>
                             <p className="message">Processo julgado procedente </p>
                         </div>
+
+                        <div className="actions">
+                            <button style={{ width: '93%', marginLeft: '10px', padding: '7px', backgroundColor: '#28313b', border: '0px', color: '#fff', borderRadius: '5px', cursor: 'pointer' }} 
+                                type="button" onClick={handleOpen}> Inserir atualização de processo </button>
+                        </div>
+
                     </div>
                 </InfoBlock>
 
             </div>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                    <div className={classes.paper}>
+                        <h1>Inserir atualização</h1>
+                        
+                        <button style={{ margin: '5px' }} type="button">Inserir</button>
+                        <button style={{ margin: '5px' }} onClick={handleClose} type="button">Cancelar</button>
+                    </div>
+                </Fade>
+            </Modal>
 
         </Container>
     )
