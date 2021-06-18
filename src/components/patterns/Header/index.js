@@ -17,7 +17,7 @@ import Logo from "../../ui/Logo";
 
 import Avatar from "../../data-display/Avatar";
 
-import AvatarImage from "../../../images/avatar.png";
+import AvatarImage from "../../../images/avatar-blank.png";
 
 import EventEmitter from '../../../services/EventEmitter';
 

@@ -24,7 +24,7 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import Avatar from "../../components/data-display/Avatar";
 
 import CoverImage from "../../images/cover.png"
-import AvatarImage from "../../images/avatar.png"
+import AvatarImage from "../../images/avatar-blank.png"
 
 export default function Profile() {
 

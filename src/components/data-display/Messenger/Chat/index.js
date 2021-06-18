@@ -46,7 +46,7 @@ export const ChatHeader = ({ userImage, userName, onClick }) => {
                 </button>
 
                 <div className="chat-user">
-                    <Avatar size="small" image={!userImage ? "/images/avatar.png" : userImage} />
+                    <Avatar size="small" image={!userImage ? "/images/avatar-blank.png" : userImage} />
                     <div className="contact-name">
                         {userName}
                     </div>

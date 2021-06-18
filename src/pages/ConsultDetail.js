@@ -5,7 +5,7 @@ import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
 
 import Container from '../components/layout/Container';
 import CoverImage from "../images/cover.png"
-import AvatarImage from "../images/avatar.png"
+import AvatarImage from "../images/avatar-blank.png"
 
 import Cover from "../components/data-display/Cover";
 import Avatar from "../components/data-display/Avatar";

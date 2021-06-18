@@ -5,7 +5,7 @@ import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
 
 import Container from '../components/layout/Container';
 import CoverImage from "../images/cover.png"
-import AvatarImage from "../images/avatar.png"
+import AvatarImage from "../images/avatar-blank.png"
 
 import Cover from "../components/data-display/Cover";
 import Avatar from "../components/data-display/Avatar";
@@ -63,7 +63,7 @@ export default function ProcessDetail() {
                     <div className="update_background">
                         <div className="rating">
                             <div class="message-user-info">
-                                <Avatar size="small" image={AvatarImage} /> <small className="message-user">Charlie Harper (23/01/2020 14:50:00)</small> 
+                                <Avatar size="small" image={AvatarImage} /> <small className="message-user">Advogado (23/01/2020 14:50:00)</small> 
                             </div>
                             
                             <p className="message">Processo protocolado na vara  N 32 de São Paulo </p>
@@ -71,9 +71,9 @@ export default function ProcessDetail() {
 
                         <div className="rating">
                             <div class="message-user-info">
-                                <Avatar size="small" image={AvatarImage} /> <small className="message-user">Você (25/01/2020 17:40)</small> 
+                                <Avatar size="small" image={AvatarImage} /> <small className="message-user">Advogado (25/01/2020 17:40)</small> 
                             </div>
-                            <p className="message">Realizado upload RG solicitado pelo juiz </p>
+                            <p className="message">Processo julgado procedente </p>
                         </div>
                     </div>
                 </InfoBlock>

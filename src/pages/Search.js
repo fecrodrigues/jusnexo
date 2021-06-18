@@ -15,7 +15,7 @@ import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
 import { faCommentDots, faStarHalfAlt, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons'; 
 
-import AvatarImage from "../images/avatar.png"
+import AvatarImage from "../images/avatar-blank.png"
 
 const ChatButton = ({ onClick }) => {
 

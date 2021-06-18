@@ -15,7 +15,7 @@ import { faStar as faStarEmpty } from "@fortawesome/free-regular-svg-icons";
 import Avatar from "../components/data-display/Avatar";
 
 import CoverImage from "../images/cover.png"
-import AvatarImage from "../images/avatar.png"
+import AvatarImage from "../images/avatar-blank.png"
 import { Grid } from "@material-ui/core";
 
 const Expertise = ({ text }) => {

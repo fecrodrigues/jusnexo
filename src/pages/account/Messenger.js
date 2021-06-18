@@ -14,7 +14,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import AvatarImage from "../../images/avatar.png"
+import AvatarImage from "../../images/avatar-blank.png"
 
 export default function Messenger() {
 

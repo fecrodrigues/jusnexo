@@ -3,7 +3,7 @@ import React from 'react';
 import Avatar from "../components/data-display/Avatar";
 import { Container, Divider, Typography, Card, CardActions, CardContent, Button, Grid } from '@material-ui/core';
 
-import AvatarImage from "../images/avatar.png"
+import AvatarImage from "../images/avatar-blank.png";
 
 export default function Process(props) {
  

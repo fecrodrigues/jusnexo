@@ -16,7 +16,7 @@ export const Contact = ({ active, name, previewMessage, iconNewMessage, userImag
     return (
         <li className={`contact ${active ? 'active' : ''}`} onClick={onClick}>
             <div className="_col">
-                <Avatar size="medium" image={!userImage ? "/images/avatar.png" : userImage} />
+                <Avatar size="medium" image={!userImage ? "/images/avatar-blank.png" : userImage} />
                 <div className="contact-info">
                     <div className="contact-name">
                         {name}
