@@ -17,7 +17,11 @@ import Avatar from "../components/data-display/Avatar";
 import CoverImage from "../images/cover.png"
 import AvatarImage from "../images/avatar-blank.png"
 
-import { Modal, Backdrop, Fade, makeStyles, Grid  } from '@material-ui/core';
+import { Modal, Backdrop, Fade, makeStyles, Grid, Typography, Button  } from '@material-ui/core';
+import { useForm } from 'react-hook-form';
+import { Textarea } from "./../components/forms/Field";
+
+import StarRatingComponent from "react-star-rating-component";
 
 const Expertise = ({ text }) => {
 
@@ -62,6 +66,10 @@ export default function UserProfile(props) {
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [rating, setRating] = React.useState(1);
+    const [lawyerRating, setLawyerRating] = React.useState(4);
+    const { register, handleSubmit, errors } = useForm();
+    
 
     const handleOpen = () => {
         setOpen(true);
@@ -70,6 +78,14 @@ export default function UserProfile(props) {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const onSubmit = (data) => {
+        console.log('salvar ae', data, rating);
+    }
+
+    const onStarClick = (nextValue, prevValue, name) => {
+        setRating(nextValue);
+    }
 
     return (
         <Container id="view_user-profile">
@@ -84,7 +100,12 @@ export default function UserProfile(props) {
                 </div>
 
                 <div className="rate">
-                    Avaliação:  <I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStarHalfAlt}/><I icon={faStarEmpty}/>
+                    <span style={{ position: 'relative', top: '-5px' }}>Avaliação:</span>  <span style={{ fontSize: '1.3em' }}><StarRatingComponent
+                                    name="evaluation"
+                                    value={lawyerRating}
+                                    starCount={5}
+                                    editing={false}
+                                /></span>
                 </div>
 
                 <div className="oab-number">
@@ -130,7 +151,12 @@ export default function UserProfile(props) {
                         <div class="message-user-info">
                             <Avatar size="small" image={AvatarImage} /> <small className="message-user">Cliente 1</small> 
 
-                            <small className="message-rate"><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/></small>
+                            <small className="message-rate" style={{ fontSize: '1.3em' }}><StarRatingComponent
+                                    name="evaluation"
+                                    value={4}
+                                    starCount={5}
+                                    editing={false}
+                                /></small>
                         </div>
                         
                         <p className="message">Advogado excelente, resolveu meu problema de forma simples e ágil </p>
@@ -140,7 +166,12 @@ export default function UserProfile(props) {
                         <div class="message-user-info">
                             <Avatar size="small" image={AvatarImage} /> <small className="message-user">Cliente 2</small> 
 
-                            <small className="message-rate"><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/></small>
+                            <small className="message-rate" style={{ fontSize: '1.3em' }}><StarRatingComponent
+                                    name="evaluation"
+                                    value={5}
+                                    starCount={5}
+                                    editing={false}
+                                /></small>
                         </div>
                         <p className="message">Advogado Muito bom </p>
                     </div>
@@ -149,7 +180,12 @@ export default function UserProfile(props) {
                         <div class="message-user-info">
                                 <Avatar size="small" image={AvatarImage} /> <small className="message-user">Cliente 3</small> 
 
-                                <small className="message-rate"><I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStarEmpty}/><I icon={faStarEmpty}/></small>
+                                <small className="message-rate" style={{ fontSize: '1.3em' }}><StarRatingComponent
+                                    name="evaluation"
+                                    value={3}
+                                    starCount={5}
+                                    editing={false}
+                                /></small>
                          </div>
                         <p className="message">Advogado bom , porem demora para responder </p>
                     </div>
@@ -172,10 +208,39 @@ export default function UserProfile(props) {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h1>Avaliar o profissional</h1>
+                        <Typography variant="h4" component="h4"> Avaliar profissional </Typography>
                         
-                        <button style={{ margin: '5px' }} type="button">Avaliar</button>
-                        <button style={{ margin: '5px' }} onClick={handleClose} type="button">Cancelar</button>
+                        <form onSubmit={handleSubmit(onSubmit)} className="update-form">
+                            
+                            <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                                <p style={{ marginBottom: '5px' }}>Avaliação</p>
+                                
+                                <div style={{ fontSize: '2em' }}>
+                                    <StarRatingComponent
+                                        name="evaluation"
+                                        value={rating}
+                                        starCount={5}
+                                        editing={true}
+                                        onStarClick={onStarClick}
+                                    />
+                                </div>
+                            </div>
+
+                            <Textarea
+                                label="Descrição"
+                                id="id4fdsa1254"
+                                name="description"
+                                type="textarea"
+                                ref={register({ required: true })}
+                                error={errors.description && "Campo obrigatório"}
+                            />
+                        
+                            <div className="action-buttons" style={{ position: 'relative', bottom: '-17px' }}>
+                                <Button type="submit" variant="contained" color="primary" style={{ margin: '5px', width: '46%', backgroundColor: 'rgb(40, 49, 59)' }}>Avaliar</Button>
+                                <Button variant="contained" color="default" style={{ margin: '5px', width: '46%' }} onClick={handleClose}>Cancelar</Button>
+                            </div>
+
+                        </form>
                     </div>
                 </Fade>
             </Modal>

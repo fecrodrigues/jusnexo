@@ -1,7 +1,11 @@
 
 import React from 'react';
 import Avatar from "../components/data-display/Avatar";
-import { Container, Divider, Typography, Card, CardContent, Grid, Modal, Backdrop, Fade, makeStyles  } from '@material-ui/core';
+import { Container, Divider, Typography, Card, CardContent, Grid, Modal, Backdrop, Fade, makeStyles, Button, TextField } from '@material-ui/core';
+import { useForm } from 'react-hook-form';
+import { Textarea } from "./../components/forms/Field";
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import Swal2 from 'sweetalert2';
 
 import AvatarImage from "../images/avatar-blank.png";
 
@@ -18,18 +22,59 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const clientsExample = [
+    { title: 'João Silva', id: 1 },
+    { title: 'Maria Costa', id: 2 },
+    { title: 'Pedro junior', id: 3 }
+]
+
 export default function Process(props) {
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [actualDate, setActualDate] = React.useState();
+    const [actualDateToShow, setActualDateToShow] = React.useState();
+    const [selectedClient, setSelectedClient] = React.useState();
+    const { register, handleSubmit, errors } = useForm();
 
     const handleOpen = () => {
+        dataAtualFormatada();
         setOpen(true);
     };
 
     const handleClose = () => {
         setOpen(false);
     };
+
+    const onSubmit = (data) => {
+        
+        if(!selectedClient) {
+            
+            handleClose();
+            
+            Swal2.fire({ 
+                icon: 'info', 
+                title: "Ops!", 
+                html: "Você precisa selecionar o cliente ao qual este processo pertence",
+                confirmButtonColor: 'rgb(40, 49, 59)' 
+            }).then(() => handleOpen())
+
+        } else {
+            console.log('salvar ae', data, actualDate, selectedClient);
+        }
+    }
+
+    const dataAtualFormatada = () => {
+        var data = new Date(),
+            dia  = data.getDate().toString(),
+            diaF = (dia.length == 1) ? '0'+dia : dia,
+            mes  = (data.getMonth()+1).toString(),
+            mesF = (mes.length == 1) ? '0'+mes : mes,
+            anoF = data.getFullYear();
+
+            setActualDateToShow(diaF+"/"+mesF+"/"+anoF)
+            setActualDate(data);
+    }
  
     return (
         
@@ -179,10 +224,45 @@ export default function Process(props) {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h1>Cadastrar um novo processo</h1>
+                        <Typography variant="h4" component="h4"> Cadastrar um novo processo </Typography>
                         
-                        <button style={{ margin: '5px' }} type="button">Cadastrar</button>
-                        <button style={{ margin: '5px' }} onClick={handleClose} type="button">Cancelar</button>
+                        <form onSubmit={handleSubmit(onSubmit)} className="update-form">
+
+                            <div style={{ marginTop: '20px' }}>
+                                <Autocomplete
+                                    id="client"
+                                    options={clientsExample}
+                                    name="client"
+                                    getOptionLabel={(option) => option.title}
+                                    style={{ width: 300 }}
+                                    onChange={(e, option) => setSelectedClient(option)}
+                                    ref={register({ required: true })}
+                                    renderInput={(params) => <TextField {...params} label="Selecione o cliente" variant="outlined" />}
+                                    error={errors.client && "Campo obrigatório"}
+                                    />
+                            </div>
+                            
+                            <div style={{ marginTop: '20px' }}>
+                                <Textarea
+                                    label="Descrição"
+                                    id="id4fdsa1254"
+                                    name="description"
+                                    type="textarea"
+                                    ref={register({ required: true })}
+                                    error={errors.description && "Campo obrigatório"}
+                                />
+                            </div>
+
+                            <Typography color="textPrimary" gutterBottom noWrap>
+                                    Data do cadastro: { actualDateToShow }
+                            </Typography>
+                        
+                            <div className="action-buttons" style={{ position: 'relative', bottom: '-17px' }}>
+                                <Button type="submit" variant="contained" color="primary" style={{ margin: '5px', width: '46%', backgroundColor: 'rgb(40, 49, 59)' }}>Cadastrar</Button>
+                                <Button variant="contained" color="default" style={{ margin: '5px', width: '46%' }} onClick={handleClose}>Cancelar</Button>
+                            </div>
+
+                        </form>
                     </div>
                 </Fade>
             </Modal>

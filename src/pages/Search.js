@@ -15,7 +15,8 @@ import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
 import { faCommentDots, faStarHalfAlt, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons'; 
 
-import AvatarImage from "../images/avatar-blank.png"
+import AvatarImage from "../images/avatar-blank.png";
+import StarRatingComponent from "react-star-rating-component";
 
 const ChatButton = ({ onClick }) => {
 
@@ -37,7 +38,7 @@ const Expertise = ({ text }) => {
     )
 }
 
-const ResultBlock = ({ href, avatarImage, tag, username, oabNumber, bio, children }) => {
+const ResultBlock = ({ href, avatarImage, tag, username, oabNumber, bio, children, rating }) => {
 
     return (
         <Link to={!href ? "#!" : href} className="result-block">
@@ -53,7 +54,13 @@ const ResultBlock = ({ href, avatarImage, tag, username, oabNumber, bio, childre
                         {username}
                     </div>
                     <div class="rate">
-                        Avaliação:  <I icon={faStar}/><I icon={faStar}/><I icon={faStar}/><I icon={faStarHalfAlt}/><I icon={faStarEmpty}/>
+                        <span style={{ position: 'relative', top: '-5px' }}>Avaliação:</span> 
+                        <span style={{ fontSize: "1.2em" }}><StarRatingComponent
+                                        name="evaluation"
+                                        value={rating}
+                                        starCount={5}
+                                        editing={false}
+                                    /></span>
                     </div>
                     <div className="oab-number">
                         OAB: <span>{oabNumber}</span>
@@ -109,6 +116,7 @@ export default function SearchPage() {
                     Sed lectus leo, consequat nec ante in, tincidunt venenatis nunc."
                     oabNumber="SP/425490"
                     tag="Advogado"
+                    rating={5}
                 >
                     <ChatButton onClick={() => console.log("Open Chat!!")} />
                     <Expertise text="administrativo" />
@@ -124,6 +132,7 @@ export default function SearchPage() {
                     Sed lectus leo, consequat nec ante in, tincidunt venenatis nunc."
                     oabNumber="SP/425490"
                     tag="Advogado"
+                    rating={4}
                 >
                     <ChatButton onClick={() => console.log("Open Chat!!")} />
                     <Expertise text="administrativo" />
@@ -139,6 +148,7 @@ export default function SearchPage() {
                     Sed lectus leo, consequat nec ante in, tincidunt venenatis nunc."
                     oabNumber="SP/425490"
                     tag="Advogado"
+                    rating={3}
                 >
                     <ChatButton onClick={() => console.log("Open Chat!!")} />
                     <Expertise text="administrativo" />

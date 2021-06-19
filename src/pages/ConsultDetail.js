@@ -10,7 +10,9 @@ import AvatarImage from "../images/avatar-blank.png"
 import Cover from "../components/data-display/Cover";
 import Avatar from "../components/data-display/Avatar";
 
-import { Modal, Backdrop, Fade, makeStyles  } from '@material-ui/core';
+import { Modal, Backdrop, Fade, makeStyles, Typography, Button  } from '@material-ui/core';
+import { useForm } from 'react-hook-form';
+import { Textarea } from "./../components/forms/Field";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -44,6 +46,7 @@ export default function ConsultDetail() {
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const { register, handleSubmit, errors } = useForm();
 
     const handleOpen = () => {
         setOpen(true);
@@ -52,6 +55,10 @@ export default function ConsultDetail() {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const onSubmit = (data) => {
+        console.log('salvar ae', data);
+    }
 
     return (
         <Container id="view_process_detail">
@@ -124,10 +131,25 @@ export default function ConsultDetail() {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h1>Responder consulta</h1>
+                        <Typography variant="h4" component="h4"> Responder Consulta </Typography>
                         
-                        <button style={{ margin: '5px' }} type="button">Responder</button>
-                        <button style={{ margin: '5px' }} onClick={handleClose} type="button">Cancelar</button>
+                        <form onSubmit={handleSubmit(onSubmit)} className="update-form">
+                            
+                            <Textarea
+                                label="Resposta"
+                                id="id4fdsa1254"
+                                name="consult_response"
+                                type="textarea"
+                                ref={register({ required: true })}
+                                error={errors.consult_response && "Campo obrigatório"}
+                            />
+                        
+                            <div className="action-buttons" style={{ position: 'relative', bottom: '-17px' }}>
+                                <Button type="submit" variant="contained" color="primary" style={{ margin: '5px', width: '46%', backgroundColor: 'rgb(40, 49, 59)' }}>Responder</Button>
+                                <Button variant="contained" color="default" style={{ margin: '5px', width: '46%' }} onClick={handleClose}>Cancelar</Button>
+                            </div>
+
+                        </form>
                     </div>
                 </Fade>
             </Modal>
