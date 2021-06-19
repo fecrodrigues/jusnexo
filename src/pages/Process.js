@@ -236,9 +236,7 @@ export default function Process(props) {
                                     getOptionLabel={(option) => option.title}
                                     style={{ width: 300 }}
                                     onChange={(e, option) => setSelectedClient(option)}
-                                    ref={register({ required: true })}
                                     renderInput={(params) => <TextField {...params} label="Selecione o cliente" variant="outlined" />}
-                                    error={errors.client && "Campo obrigatório"}
                                     />
                             </div>
                             
