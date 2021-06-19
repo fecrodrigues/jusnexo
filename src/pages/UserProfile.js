@@ -10,7 +10,7 @@ import Container from "../components/layout/Container";
 // #4 - Import * FontAwesome Icons
 //=====================================================================================
 import { FontAwesomeIcon as I } from "@fortawesome/react-fontawesome";
-import { faCommentDots, faStar, faStarHalfAlt, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faStar, faStarHalfAlt, faCheck, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarEmpty } from "@fortawesome/free-regular-svg-icons";
 import Avatar from "../components/data-display/Avatar";
 
@@ -66,6 +66,7 @@ export default function UserProfile(props) {
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [openConsult, setOpenConsult] = React.useState(false);
     const [rating, setRating] = React.useState(1);
     const [lawyerRating, setLawyerRating] = React.useState(4);
     const { register, handleSubmit, errors } = useForm();
@@ -79,8 +80,20 @@ export default function UserProfile(props) {
         setOpen(false);
     };
 
+    const handleOpenConsult = () => {
+        setOpenConsult(true);
+    };
+
+    const handleCloseConsult = () => {
+        setOpenConsult(false);
+    };
+
     const onSubmit = (data) => {
         console.log('salvar ae', data, rating);
+    }
+
+    const onSubmitConsult = (data) => {
+        console.log('salvar ae', data);
     }
 
     const onStarClick = (nextValue, prevValue, name) => {
@@ -127,6 +140,12 @@ export default function UserProfile(props) {
                         type="button" className="btn btn-action">
                         Realizar avaliação
                         <I icon={faCheck} />
+                    </button>
+
+                    <button style={{ backgroundColor: '#28313b', marginTop: '10px' }} onClick={handleOpenConsult} 
+                        type="button" className="btn btn-action">
+                        Solicitar Consulta
+                        <I icon={faBookOpen} />
                     </button>
                 </InfoBlock>
 
@@ -238,6 +257,43 @@ export default function UserProfile(props) {
                             <div className="action-buttons" style={{ position: 'relative', bottom: '-17px' }}>
                                 <Button type="submit" variant="contained" color="primary" style={{ margin: '5px', width: '46%', backgroundColor: 'rgb(40, 49, 59)' }}>Avaliar</Button>
                                 <Button variant="contained" color="default" style={{ margin: '5px', width: '46%' }} onClick={handleClose}>Cancelar</Button>
+                            </div>
+
+                        </form>
+                    </div>
+                </Fade>
+            </Modal>
+
+            <Modal
+                aria-labelledby="transition-modal-title-consult"
+                aria-describedby="transition-modal-description-consult"
+                className={classes.modal}
+                open={openConsult}
+                onClose={handleCloseConsult}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openConsult}>
+                    <div className={classes.paper}>
+                        <Typography variant="h4" component="h4"> Solicitar Consulta </Typography>
+                        
+                        <form onSubmit={handleSubmit(onSubmitConsult)} className="update-form">
+                            
+                            <Textarea
+                                label="Duvida"
+                                id="id4fdsa1254"
+                                name="consult_doubt"
+                                type="textarea"
+                                ref={register({ required: true })}
+                                error={errors.consult_doubt && "Campo obrigatório"}
+                            />
+                        
+                            <div className="action-buttons" style={{ position: 'relative', bottom: '-17px' }}>
+                                <Button type="submit" variant="contained" color="primary" style={{ margin: '5px', width: '46%', backgroundColor: 'rgb(40, 49, 59)' }}>Enviar</Button>
+                                <Button variant="contained" color="default" style={{ margin: '5px', width: '46%' }} onClick={handleCloseConsult}>Cancelar</Button>
                             </div>
 
                         </form>
