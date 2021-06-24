@@ -96,7 +96,7 @@ export default function Home() {
                         </div>
                         <div className="_col">
 
-                            <img className="featured-chat" style={{ width: '513px' }} src={ProcessImage} alt="" />
+                            <img className="featured-chat" style={{ maxWidth: '513px' }} src={ProcessImage} alt="" />
 
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default function Home() {
                         </div>
                         <div className="_col">
 
-                            <img className="featured-chat" style={{ width: '513px' }} src={UpdatesImage} alt="" />
+                            <img className="featured-chat" style={{ maxWidth: '513px' }} src={UpdatesImage} alt="" />
 
                         </div>
                     </div>
@@ -204,7 +204,7 @@ export default function Home() {
                         </div>
                         <div className="_col">
 
-                            <img className="featured-chat" style={{ width: '513px' }} src={Evaluate2Image} alt="" />
+                            <img className="featured-chat" style={{ maxWidth: '513px' }} src={Evaluate2Image} alt="" />
 
                         </div>
                     </div>
